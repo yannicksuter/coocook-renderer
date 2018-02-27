@@ -1,0 +1,31 @@
+wherewasi
+=========
+
+[27.2.2018] The vision for first steps...
+* use gcloud to host a python webservice
+* input:
+** structured json recipe
+** url to webpage with content to be extracted
+* output: render recipe to coocook graph
+* flask / html rendering
+
+build/test/run
+==============
+
+##virtualenv
+virtualenv env 
+source env/bin/activate
+
+##requirements
+pip install -t lib -r requirements.txt
+
+##testing
+dev_appserver.py app.yaml -> http://localhost:8080/form to see the results.
+
+##deployment
+gcloud app deploy
+-> https://console.cloud.google.com
+
+documentation
+=============
+* [gcloud,appengine,python,flask] https://cloud.google.com/appengine/docs/standard/python/getting-started/python-standard-env
