@@ -8,21 +8,16 @@ app = Flask(__name__)
 def form():
     return render_template('form.html')
 
-
-@app.route('/submitted', methods=['POST'])
+@app.route('/snipped', methods=['POST'])
 def submitted_form():
-    name = request.form['name']
-    email = request.form['email']
-    site = request.form['site_url']
-    comments = request.form['comments']
-
+    title = request.form['title']
+    origin = request.form['origin']
+    content = request.form['content']
     return render_template(
-        'submitted_form.html',
-        name=name,
-        email=email,
-        site=site,
-        comments=comments)
-
+        'submitted_recipe.html',
+        title=title,
+        origin=origin,
+        content=content)
 
 @app.errorhandler(500)
 def server_error(e):
