@@ -1,7 +1,8 @@
 import logging
+from HTMLTagger import HTMLCLeanup
 from flask import Flask, render_template, request
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 @app.route('/')
 @app.route('/form')
@@ -13,11 +14,13 @@ def submitted_form():
     title = request.form['title']
     origin = request.form['origin']
     content = request.form['content']
+
     return render_template(
         'submitted_recipe.html',
         title=title,
         origin=origin,
-        content=content)
+        content_html=content,
+        content=HTMLCLeanup().clean(content))
 
 @app.errorhandler(500)
 def server_error(e):

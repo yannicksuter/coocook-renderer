@@ -40,7 +40,7 @@ function postSelectionHtml() {
 
 javascript:(function(){var h="",s,g,c,i;if(window.getSelection){s=window.getSelection();if(s.rangeCount){c=document.createElement("div");for(i=0;i<s.rangeCount;++i){c.appendChild(s.getRangeAt(i).cloneContents());}h=c.innerHTML}}else if((s=document.selection)&&s.type=="Text"){h=s.createRange().htmlText;}post('http://localhost:8080/snipped', {title: document.title, origin: window.location.href, content: h})})();function post(a,b){const c=(e,f)=>Object.assign(document.createElement(e),f),d=c('form',{action:a,method:'post',style:'display: none'});for(const[e,f]of Object.entries(b))d.appendChild(c('input',{name:e,value:f}));document.body.appendChild(d),d.submit()}
 
->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>INGREDIENTS
 
 javascript:(function(){document.body.style.background = 'pink';})();
 

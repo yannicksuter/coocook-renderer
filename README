@@ -1,6 +1,10 @@
 wherewasi
 =========
 
+[6.4.2018] Fetch and send...
+* created a bookmarklet to fetch selected html 
+* send html code to backend service
+
 [27.2.2018] The vision for first steps...
 * use gcloud to host a python webservice
 * input:
@@ -8,6 +12,12 @@ wherewasi
 ** url to webpage with content to be extracted
 * output: render recipe to coocook graph
 * flask / html rendering
+
+install
+=======
+* run python service on localhost (see testing in section below)
+* install bookmarklet
+* select recipe from a website and send content to coocook renderer
 
 build/test/run
 ==============
@@ -25,6 +35,16 @@ dev_appserver.py app.yaml -> http://localhost:8080/form to see the results.
 ##deployment
 gcloud app deploy
 -> https://console.cloud.google.com
+
+Requirements
+============
+- gcloud: https://cloud.google.com/sdk/docs/quickstart-macos
+- Python 2.7
+- Multiple python libraries described in requirements.txt
+- Spacy Models
+pip install -U spacy
+python -m spacy download en
+python -m spacy download de
 
 documentation
 =============
