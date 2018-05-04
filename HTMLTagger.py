@@ -13,11 +13,31 @@ class MLStripper(HTMLParser):
     def get_data(self):
         return self.fed
 
-class HTMLCLeanup(object):
+class Tagger(object):
     def __init__(self):
         pass
 
     def clean(self, html_input):
 	    s = MLStripper()
 	    s.feed(html_input)
-	    return ' '.join(s.get_data())
+	    return s.get_data()
+
+    def get_tags(self, html_input):
+    	res = ""
+    	l = self.clean(html_input)
+    	for i in l:
+    		res += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format("green", i)
+    	return res
+    	# return ''.join(self.clean(html_input))
+    	# res = ""
+    	# l = self.clean(html_input)
+    	# print l
+    	# for term in self.clean(html_input):
+    	# 	print term
+	    # return ''.join(self.clean(html_input))
+
+	# def get_tags(self, html_input):
+	# 	res = ""
+	# 	# for term in self.clean(html_input):
+	# 	# 	res += '<span class=\"tag {}\">{}</span>'.format(term, "green")
+	# 	return res

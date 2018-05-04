@@ -1,6 +1,6 @@
 import logging
-from HTMLTagger import HTMLCLeanup
-from flask import Flask, render_template, request
+from HTMLTagger import Tagger
+from flask import Flask, render_template, request, Markup
 
 app = Flask(__name__)
 
@@ -20,7 +20,8 @@ def submitted_form():
         title=title,
         origin=origin,
         content_html=content,
-        content=HTMLCLeanup().clean(content))
+        content=Markup(Tagger().get_tags(content)))
+        # content=HTMLCLeanup().get_tags(content))
 
 @app.errorhandler(500)
 def server_error(e):

@@ -1,21 +1,19 @@
 <html>
- <head>
-   <title>Submitted form</title>
-   <link rel="stylesheet" type="text/css" href="/static/style.css">
- </head>
- <body>
-   <div id="container">
-     <div class="pagetitle">
-       <h1>Recipe submitted, processing...</h1>
-     </div>
-     <div id="main">
-       <p>
-          <strong>Title</strong>: {{title}} <br>
-          <strong>Origin</strong>: {{origin}} <br>
-          <strong>ContentHtml</strong>: {{content_html}}<br>
-          <strong>Content</strong>: {{content}}
-       </p>
-     </div>
-   </div>
- </body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    
+    <title>Coocoock Tagcloud</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="/static/tag_style.css">
+  </head>
+<body>
+  <section class="origin">
+    <h1>Recipe submitted, processing...</h1>
+    <b>Title</b>: {{title}} <br>
+    <b>Origin</b>: {{origin}} <br>
+  </section>
+  <section class="tagcloud">
+    {{content}}    
+  </section>          
+</body>
 </html>
