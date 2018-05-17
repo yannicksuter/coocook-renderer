@@ -1,10 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import re
 import spacy
 from html.parser import HTMLParser
-# from HTMLParser import HTMLParser
 
 class MLStripper(HTMLParser):
     def __init__(self):
@@ -40,16 +38,29 @@ class Tagger(object):
             return "red"
         return "green"
 
+    def get_token_color(self, token):
+        if token.pos_ == 'NOUN':
+            return 'red'
+        if token.pos_ == 'VERB':
+            return 'blue'
+        if token.pos_ == 'NUM':
+            return 'green'
+        return 'grey'
+
+
     def get_groups(self, html_input):
     	res = ""
     	for group in self.clean(html_input):
             doc = self.nlp(group)
+            group_html = ""
             for token in doc:
-                print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_, token.shape_, token.is_alpha, token.is_stop)
+                # print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_, token.shape_, token.is_alpha, token.is_stop)
+                title_txt = f'text:{token.text} lemma:{token.lemma_} pos:{token.pos_} tag:{token.tag_} dep:{token.dep_}'
+                group_html += '<span class=\"tag {}\"><a href="#" title="{}">{}</a></span>'.format(self.get_token_color(token), title_txt, token.text)
 
-            gres = ""
-            for token in group.split(' '):
-                gres += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format(self.get_color(token), token)
-            res += '<span class=\"outline\">{}</span>'.format(gres)
+            # group_html = ""
+            # for token in group.split(' '):
+            #     group_html += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format(self.get_color(token), token)
+            res += '<span class=\"outline\">{}</span>'.format(group_html)
 
     	return res

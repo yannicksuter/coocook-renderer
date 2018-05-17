@@ -31,11 +31,13 @@ body {
 }
 
 section.origin {
-  padding: 5 0 10 0;
+  padding: 5px 0px 10px 5px;
+  vertical-align: baseline;
+  display: block;
 }
 
 .origin h1 {
-  padding: 0 7 7 0;
+  padding: 0px 7px 7px 0px;
   line-height: 2;
   font-weight: bold;
 }
@@ -46,11 +48,7 @@ section.origin {
   display: inline;
 }
 
-/*
- * Tags
- */
-
-section.tagcloud {
+section.infoblock {
   margin: 0;
   padding: 0;
   border: 0;
@@ -58,6 +56,21 @@ section.tagcloud {
   font: inherit;
   vertical-align: baseline;
   display: block;
+}
+
+/*
+ * Tags
+ */
+
+section.tagcloud {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+    overflow: auto;
 }
 
 .red a {
