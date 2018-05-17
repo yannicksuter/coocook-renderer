@@ -4,11 +4,6 @@ from flask import Flask, render_template, request, Markup
 
 app = Flask(__name__)
 
-@app.route('/')
-@app.route('/form')
-def form():
-    return render_template('form.html')
-
 @app.route('/snipped', methods=['POST'])
 def submitted_form():
     title = request.form['title']
@@ -27,3 +22,6 @@ def submitted_form():
 def server_error(e):
     logging.exception('An error occurred during a request.')
     return 'An internal error occurred.', 500
+
+if __name__ == '__main__':
+    app.run(debug=True,host='0.0.0.0')

@@ -1,6 +1,15 @@
 wherewasi
 =========
 
+[17.5.2018] removing appengine
+* simplifying setup (for now), without google appengine
+* splitting segments
+* adding groups (rendering)
+
+[11.5.2018] process fetched snipped and display
+* apply simple cleanup
+* render using tag cloud like design
+
 [6.4.2018] Fetch and send...
 * created a bookmarklet to fetch selected html 
 * send html code to backend service
@@ -26,20 +35,19 @@ build/test/run
 virtualenv env 
 source env/bin/activate
 
+## eventually needed for spacy language support
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 ##requirements
 pip install -t lib -r requirements.txt
 
 ##testing
-dev_appserver.py app.yaml -> http://localhost:8080/form to see the results.
-
-##deployment
-gcloud app deploy
--> https://console.cloud.google.com
+./run.sh -> http://localhost:5000/info to see the results.
 
 Requirements
 ============
-- gcloud: https://cloud.google.com/sdk/docs/quickstart-macos
-- Python 2.7
+- Python 3.6
 - Multiple python libraries described in requirements.txt
 - Spacy Models
 pip install -U spacy
@@ -48,4 +56,4 @@ python -m spacy download de
 
 documentation
 =============
-* [gcloud,appengine,python,flask] https://cloud.google.com/appengine/docs/standard/python/getting-started/python-standard-env
+* todo: spacy
