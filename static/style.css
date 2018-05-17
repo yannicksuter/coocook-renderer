@@ -113,6 +113,20 @@ section.tagcloud {
     display: block;
 }
 
+.outline {
+    float: left;
+    margin: 5px;
+    width: auto;
+    font: inherit;
+    vertical-align: baseline;
+    display: block;
+
+    background-color: transparent;
+    border: 1px solid rgba(35, 49, 68, 0.35);
+    border-radius: 8px;
+    color: #233144;
+}
+
 .tag {  
     float: left; 
     margin: 5px;    

@@ -31,4 +31,19 @@ class Tagger(object):
     	for i in l:
     		res += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format("green", i)
 
-    	return '<span class=\"group grey\">{}</span>'.format(res)
+    	return '<span class=\"outline\">{}</span>'.format(res)
+
+    def get_color(self, token):
+        if any(char.isdigit() for char in token):
+            return "blue"
+        return "green"
+
+    def get_groups(self, html_input):
+    	res = ""
+    	for group in self.clean(html_input):
+            gres = ""
+            for token in group.split(' '):
+                gres += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format(self.get_color(token), token)
+            res += '<span class=\"outline\">{}</span>'.format(gres)
+
+    	return res

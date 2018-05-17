@@ -15,7 +15,7 @@ def submitted_form():
         title=title,
         origin=origin,
         content_html=content,
-        content=Markup(Tagger().get_tags(content)))
+        content=Markup(Tagger().get_groups(content)))
         # content=HTMLCLeanup().get_tags(content))
 
 @app.errorhandler(500)
