@@ -18,7 +18,7 @@ class MLStripper(HTMLParser):
 
 class Tagger(object):
     def __init__(self):
-        pass
+        self.nlp = spacy.load('en')
 
     def clean(self, html_input):
 	    s = MLStripper()
@@ -36,11 +36,17 @@ class Tagger(object):
     def get_color(self, token):
         if any(char.isdigit() for char in token):
             return "blue"
+        if all(char.isupper() for char in token) and len(token) > 1:
+            return "red"
         return "green"
 
     def get_groups(self, html_input):
     	res = ""
     	for group in self.clean(html_input):
+            doc = self.nlp(group)
+            for token in doc:
+                print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_, token.shape_, token.is_alpha, token.is_stop)
+
             gres = ""
             for token in group.split(' '):
                 gres += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format(self.get_color(token), token)
