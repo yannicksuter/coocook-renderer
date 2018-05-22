@@ -24,7 +24,7 @@ time, mark, audio, video {
  * Main
  */
 body {
-  font: 10pt 'Lucida Grande', Arial, sans-serif;
+  font: 12pt 'Lucida Grande', Arial, sans-serif;
   color: #404040;
   background: #eee;
   line-height: 1;
@@ -152,7 +152,7 @@ section.tagcloud {
 .tag a {
     padding: 7px 8px;     
     color: #0F2D39;
-    font-size: 16pt;
+    font-size: 12pt;
     text-decoration: none;    
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.4);    
     border: 1px solid;

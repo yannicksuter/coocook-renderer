@@ -4,6 +4,7 @@
 import logging
 import hashlib
 
+from LanguageDetect import detect_language
 from Recipe import Recipe
 from RecipeStorage import RecipeStorage
 from RecipeTagger import Tagger
@@ -25,14 +26,22 @@ def submitted_form():
     recipe_id = m.hexdigest()
     recipe_groups = RecipePreprocessor().preprocess(html_input=recipe_content)
 
+    basic_name, code, confidence, bytesize = detect_language(', '.join(recipe_groups))
+    recipe_lang = basic_name
+    recipe_lang_pred = float(confidence)
+
+    tagger = Tagger(lang=code)
+
     RecipeStorage().store(recipe=Recipe())
 
     return render_template(
         'submitted_recipe.html',
         title= f'{recipe_title} (id: {recipe_id})',
         origin=recipe_origin,
+        language=recipe_lang,
+        language_pred=recipe_lang_pred,
         content_html=recipe_content,
-        content=Markup(Tagger().get_group_widget(recipe_groups)))
+        content=Markup(tagger.get_group_widget(recipe_groups)))
 
 @app.errorhandler(500)
 def server_error(e):

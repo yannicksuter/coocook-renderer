@@ -1,17 +1,15 @@
 import spacy
 
+class UnsupportedLanguage(Exception):
+    """Raised if we can not detect the language of a text snippet."""
+
 class Tagger(object):
-    def __init__(self, lang='en'):
+    def __init__(self, lang='en', groups=None):
+        if lang not in ['en']:
+            raise UnsupportedLanguage(f'Language {lang} not supported.')
+
         self.lang = lang
         self.nlp = spacy.load(lang)
-
-    def get_tags(self, html_input):
-    	res = ""
-    	l = self.clean(html_input)
-    	for i in l:
-    		res += '<span class=\"tag {}\"><a href="#">{}</a></span>'.format("green", i)
-
-    	return '<span class=\"outline\">{}</span>'.format(res)
 
     def get_color(self, token):
         if any(char.isdigit() for char in token):
@@ -32,7 +30,7 @@ class Tagger(object):
     def get_group_widget(self, groups):
     	html_widget = ""
     	for group in groups:
-            print(group)
+            # print(group)
             doc = self.nlp(group)
             group_html = ""
             for token in doc:
