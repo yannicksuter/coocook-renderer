@@ -80,7 +80,7 @@ section.tagcloud {
   background-image: -moz-linear-gradient(top, #ed7b39, #df5e14);
   background-image: -o-linear-gradient(top, #ed7b39, #df5e14);
   background-image: linear-gradient(to bottom, #ed7b39, #df5e14);
-  -webkit-box-shadow: inset 1px 0 #3a6b1e;
+  -webkit-box-shadow: inset 1px 0 #6b340d;
   box-shadow: 2px 2px 2px #bbbbbb;
 }
 
@@ -103,6 +103,17 @@ section.tagcloud {
   background-image: -o-linear-gradient(top, #6aaeda, #4298d0);
   background-image: linear-gradient(to bottom, #6aaeda, #4298d0);
   -webkit-box-shadow: inset 1px 0 #276f9e;
+  box-shadow: 2px 2px 2px #bbbbbb;
+}
+
+.yellow a {
+  background: #ebe700;
+  border-color: #d1cd00 #c8c700 #bfbe00;
+  background-image: -webkit-linear-gradient(top, #edea00, #dfdb00);
+  background-image: -moz-linear-gradient(top, #edea00, #dfdb00);
+  background-image: -o-linear-gradient(top, #edea00, #dfdb00);
+  background-image: linear-gradient(to bottom, #edea00, #dfdb00);
+  -webkit-box-shadow: inset 1px 0 #6b6800;
   box-shadow: 2px 2px 2px #bbbbbb;
 }
 

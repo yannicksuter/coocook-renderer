@@ -1,6 +1,10 @@
 wherewasi
 =========
 
+[23.5.2018] language detection and ingredients
+* preprocessing input, detecting language
+* creating ingredient list
+
 [17.5.2018] removing appengine
 * simplifying setup (for now), without google appengine
 * splitting segments

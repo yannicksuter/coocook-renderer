@@ -25,6 +25,8 @@ class Tagger(object):
             return 'blue'
         if token.pos_ == 'NUM':
             return 'green'
+        if token.pos_ == 'ADJ':
+            return 'yellow'
         return 'grey'
 
     def get_group_widget(self, groups):
