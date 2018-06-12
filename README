@@ -58,6 +58,6 @@ pip install -U spacy
 python -m spacy download en
 python -m spacy download de
 
-documentation
-=============
-* todo: spacy
+documentation/reads
+===================
+* spaCy: https://nlpforhackers.io/complete-guide-to-spacy/

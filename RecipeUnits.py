@@ -6,6 +6,7 @@ class Unit(object):
         pass
 
     def is_unit(self, token):
+
         kg
         g
         l
@@ -13,3 +14,6 @@ class Unit(object):
         ml
         teaspoon
         cup
+        cm
+        dm
+        m
