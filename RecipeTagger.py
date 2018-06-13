@@ -35,8 +35,8 @@ class Tagger(object):
 
 
     def get_group_widget(self, groups):
-    	html_widget = ""
-    	for group in groups:
+        html_widget = ""
+        for group in groups:
             # print(group)
             doc = self.nlp(group)
 
@@ -56,5 +56,5 @@ class Tagger(object):
                 group_html += '<span class=\"tag {}\"><a href="#" title="{}">{}</a></span>'.format(self.get_token_color(token), title_txt, token.text)
 
             html_widget += '<span class=\"outline\">{}</span>'.format(group_html)
-
-    	return html_widget
+        ingredients = []
+        return html_widget, ingredients

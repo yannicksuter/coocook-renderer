@@ -1,8 +1,19 @@
+
+
 wherewasi
 =========
 
+[13.6.2018] units and storage
+* improved text preprocessing
+** introducing units
+** remove text in brackets, as it seems to be added information but mostly not needed
+* adding mongo db storage to persist recipes
+* TODO: extract ingredients
+* TODO: extract graph with chained prod = function(prod, ...) objects
+* TODO: start to parse multiple sample pages
+
 [23.5.2018] language detection and ingredients
-* preprocessing input, detecting language
+* preprocessing input, detecting language, english support only for now
 * creating ingredient list
 
 [17.5.2018] removing appengine

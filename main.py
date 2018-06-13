@@ -32,7 +32,9 @@ def submitted_form():
 
     tagger = Tagger(lang=code)
 
-    RecipeStorage().store(recipe=Recipe())
+    RecipeStorage().store(recipe=Recipe(id=recipe_id, title=recipe_title, origin=recipe_origin, lang=recipe_lang))
+
+    groups_widget, ingredients = tagger.get_group_widget(recipe_groups)
 
     return render_template(
         'submitted_recipe.html',
@@ -41,7 +43,20 @@ def submitted_form():
         language=recipe_lang,
         language_pred=recipe_lang_pred,
         content_html=recipe_content,
-        content=Markup(tagger.get_group_widget(recipe_groups)))
+        content=Markup(groups_widget))
+
+@app.route('/recipe/<recipe_id>', methods=['GET'])
+def get_recipe(recipe_id):
+    recipe = RecipeStorage().load(recipe_id)
+    recipe_id = recipe['_id']
+    recipe_title = recipe['_title']
+    recipe_origin = recipe['_origin']
+    recipe_lang = recipe['_lang']
+    return render_template(
+        'recipe.html',
+        title=f'{recipe_title} (id: {recipe_id})',
+        origin=recipe_origin,
+        language=recipe_lang)
 
 @app.errorhandler(500)
 def server_error(e):

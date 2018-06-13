@@ -45,7 +45,7 @@ class RecipePreprocessor(object):
                     q = Q_(term)
                     if q.units.dimensionless:
                         try:
-                            print(term + l[idx + 1])
+                            # print(term + l[idx + 1])
                             q = Q_(term + l[idx + 1])
                             l[idx] = str(q)
                             l.pop(idx+1)
@@ -61,8 +61,6 @@ class RecipePreprocessor(object):
     # todo: we could add new input formats here in future and transform them to same output format
     def preprocess(self, html_input):
         _groups = self.clean_html(html_input)
-        print(_groups)
         if REMOVE_BRACKET_CONTENT:
             _groups = self.remove_bracket_content(_groups)
-            print(_groups)
         return self.clean_units(_groups)
